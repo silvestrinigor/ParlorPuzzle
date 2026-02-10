@@ -8,6 +8,11 @@ namespace ParlorPuzzle.Boxes
         ParlorPuzzleBlackBox BlackBox
     )
     {
+        public IReadOnlyCollection<ParlorPuzzleBox> GetAllBoxes()
+        {
+            return [BlueBox, WhiteBox, BlackBox];
+        }
+
         public IReadOnlyCollection<ParlorPuzzleBox> GetBoxesNextTo(ParlorPuzzleBoxOption option)
         {
             return option switch

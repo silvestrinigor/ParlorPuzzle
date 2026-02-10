@@ -10,10 +10,10 @@ namespace ParlorPuzzle.Statements
 
         protected override bool VerifyIfStatementIsTrue()
             => Boxes.GetBoxesNextTo(BoxOption)
-                 .Any(b => b.Statement!.IsTrue);
+                 .Any(b => b.Statement?.IsTrue == true);
 
         protected override IReadOnlyCollection<ParlorPuzzleBox> GetPossibleGemsLocationsInformedInStatement()
-            => [];
+            => Boxes.GetAllBoxes();
 
         protected override IReadOnlyCollection<ParlorPuzzleBox> GetNotPossibleGemsLocationsInformedInStatement()
             => [];

@@ -18,9 +18,9 @@ namespace ParlorPuzzle.Statements
         }
 
         protected override IReadOnlyCollection<ParlorPuzzleBox> GetPossibleGemsLocationsInformedInStatement()
-            => [];
+            => Boxes.GetBoxesExcept(BoxOption);
 
         protected override IReadOnlyCollection<ParlorPuzzleBox> GetNotPossibleGemsLocationsInformedInStatement()
-            => [];
+            => [Boxes.GetBox(BoxOption)];
     }
 }

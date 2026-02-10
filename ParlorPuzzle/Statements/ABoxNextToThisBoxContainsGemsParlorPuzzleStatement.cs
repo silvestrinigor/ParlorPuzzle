@@ -16,6 +16,6 @@ namespace ParlorPuzzle.Statements
             => Boxes.GetBoxesNextTo(BoxOption);
 
         protected override IReadOnlyCollection<ParlorPuzzleBox> GetNotPossibleGemsLocationsInformedInStatement()
-            => [];
+            => Boxes.GetBoxesNotNextTo(BoxOption);
     }
 }
