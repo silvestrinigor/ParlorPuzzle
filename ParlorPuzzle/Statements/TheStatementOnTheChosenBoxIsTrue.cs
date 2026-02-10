@@ -12,7 +12,7 @@ namespace ParlorPuzzle.Statements
             => $"The statement on the {ParlorPuzzleBoxes.GetBoxName(ChosenBox)} is true.";
 
         protected override bool VerifyIfStatementIsTrue()
-            => Boxes.GetBox(BoxOption).Statement!.IsTrue;
+            => Boxes.GetBox(ChosenBox).Statement!.IsTrue;
 
         protected override IReadOnlyCollection<ParlorPuzzleBox> GetPossibleGemsLocationsInformedInStatement()
             => [];

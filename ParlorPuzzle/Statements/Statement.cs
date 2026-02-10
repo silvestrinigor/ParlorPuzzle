@@ -21,7 +21,7 @@ namespace ParlorPuzzle.Statements
                     return _cachedIsTrue.Value;
 
                 if (_isEvaluating)
-                    return false; // breaks circular truth dependency safely
+                    throw new InvalidOperationException("Circular dependency detected in statement evaluation.");
 
                 _isEvaluating = true;
 

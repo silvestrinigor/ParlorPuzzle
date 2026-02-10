@@ -24,6 +24,8 @@ namespace ParlorPuzzle.Games
 
         private ParlorPuzzleGame? TryGenerate()
         {
+            try
+            {
             // 1. Create boxes
             var blue = new ParlorPuzzleBlueBox();
             var white = new ParlorPuzzleWhiteBox();
@@ -99,6 +101,12 @@ namespace ParlorPuzzle.Games
                 return null;
 
             return new ParlorPuzzleGame(boxes);
+            }
+            catch
+             {
+                // In case of any unexpected error during generation, we simply return null to try again.
+                return null;
+            }
         }
 
         private static void Wire(

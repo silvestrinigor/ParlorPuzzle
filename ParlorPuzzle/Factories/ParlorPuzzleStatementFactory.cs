@@ -34,7 +34,7 @@ namespace ParlorPuzzle.Factories
             },
 
             (box, option, boxes) =>
-                new BoxesNextToThisBoxContainGemsParlorPuzzleStatement
+                new AllBoxesNextToThisBoxContainGemsParlorPuzzleStatement
                 {
                     Box = box,
                     BoxOption = option,
