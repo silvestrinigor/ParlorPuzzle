@@ -12,15 +12,26 @@ namespace ParlorPuzzle.Statements
             => "A box with a false statement does not contains the gems.";
 
         protected override bool VerifyIfStatementIsTrue()
-            => Boxes.GetBoxesExcept(BoxOption)
+        {
+            if (Boxes.GetBox(BoxOption).ContainsGems)
+                return false;
+
+            return Boxes.GetBoxesExcept(BoxOption)
                  .Any(b => b.ContainsGems && !b.Statement!.IsTrue);
+        }
+
 
         protected override bool VerifyInvertedIfStatementIsTrue()
-            => Boxes.GetBoxesExcept(BoxOption)
+        {
+            if (!Boxes.GetBox(BoxOption).ContainsGems)
+                return false;
+
+            return Boxes.GetBoxesExcept(BoxOption)
                  .Any(b => !b.ContainsGems && !b.Statement!.IsTrue);
+        }
 
         protected override IReadOnlyCollection<ParlorPuzzleBox> GetPossibleGemsLocationsInformedInStatement()
-            => [.. Boxes.GetBoxesExcept(BoxOption)];
+            => [];
 
         protected override IReadOnlyCollection<ParlorPuzzleBox> GetPossibleGemsLocationsInvertedInformedInStatement()
             => [];
