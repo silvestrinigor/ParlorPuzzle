@@ -19,6 +19,17 @@ namespace ParlorPuzzle.Boxes
             };
         }
 
+        public IReadOnlyCollection<ParlorPuzzleBox> GetBoxesExcept(ParlorPuzzleBoxOption option)
+        {
+            return option switch
+            {
+                ParlorPuzzleBoxOption.BlueBox => [WhiteBox, BlackBox],
+                ParlorPuzzleBoxOption.WhiteBox => [BlueBox, BlackBox],
+                ParlorPuzzleBoxOption.BlackBox => [WhiteBox, BlueBox],
+                _ => throw new ArgumentOutOfRangeException(nameof(option))
+            };
+        }
+
         public ParlorPuzzleBox GetBox(ParlorPuzzleBoxOption option)
         {
             return option switch

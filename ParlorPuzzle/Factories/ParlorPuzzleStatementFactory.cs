@@ -45,7 +45,7 @@ namespace ParlorPuzzle.Factories
                 },
 
             (box, option, boxes) =>
-                new ABoxWhitAFalseStatementContainsTheGems
+                new ABoxWithAFalseStatementContainsTheGems
                 {
                     IsInverted = Random.Shared.Next(2) == 0,
                     Box = box,
@@ -54,7 +54,7 @@ namespace ParlorPuzzle.Factories
                 },
 
             (box, option, boxes) =>
-                new ABoxWhitATrueStatementContainsTheGems
+                new ABoxWithATrueStatementContainsTheGems
                 {
                     IsInverted = Random.Shared.Next(2) == 0,
                     Box = box,
