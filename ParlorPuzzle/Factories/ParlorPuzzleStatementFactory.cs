@@ -13,7 +13,6 @@ namespace ParlorPuzzle.Factories
             (box, option, boxes) =>
                 new ABoxNextToThisBoxContainsGemsParlorPuzzleStatement
                 {
-                    IsInverted = Random.Shared.Next(2) == 0,
                     Box = box,
                     BoxOption = option,
                     Boxes = boxes
@@ -28,7 +27,6 @@ namespace ParlorPuzzle.Factories
                 return new TheStatementOnTheChosenBoxIsTrue
                 {
                     ChosenBox = otherBoxes[Random.Shared.Next(otherBoxes.Length)],
-                    IsInverted = Random.Shared.Next(2) == 0,
                     Box = box,
                     BoxOption = option,
                     Boxes = boxes
@@ -38,7 +36,6 @@ namespace ParlorPuzzle.Factories
             (box, option, boxes) =>
                 new BoxesNextToThisBoxContainGemsParlorPuzzleStatement
                 {
-                    IsInverted = Random.Shared.Next(2) == 0,
                     Box = box,
                     BoxOption = option,
                     Boxes = boxes
@@ -47,7 +44,6 @@ namespace ParlorPuzzle.Factories
             (box, option, boxes) =>
                 new ABoxWithAFalseStatementContainsTheGems
                 {
-                    IsInverted = Random.Shared.Next(2) == 0,
                     Box = box,
                     BoxOption = option,
                     Boxes = boxes
@@ -56,7 +52,6 @@ namespace ParlorPuzzle.Factories
             (box, option, boxes) =>
                 new ABoxWithATrueStatementContainsTheGems
                 {
-                    IsInverted = Random.Shared.Next(2) == 0,
                     Box = box,
                     BoxOption = option,
                     Boxes = boxes
@@ -65,7 +60,6 @@ namespace ParlorPuzzle.Factories
             (box, option, boxes) =>
                 new ABoxNextToThisBoxDisplaysATrueStatementParlorPuzzleStatement
                 {
-                    IsInverted = Random.Shared.Next(2) == 0,
                     Box = box,
                     BoxOption = option,
                     Boxes = boxes

@@ -8,27 +8,14 @@ namespace ParlorPuzzle.Statements
         protected override string GetMessage()
             => "A box next to this box displays a true statement.";
 
-        protected override string GetInvertedMessage()
-            => "A box next to this box displays a false statement.";
-
         protected override bool VerifyIfStatementIsTrue()
             => Boxes.GetBoxesNextTo(BoxOption)
                  .Any(b => b.Statement!.IsTrue);
 
-        protected override bool VerifyInvertedIfStatementIsTrue()
-            => Boxes.GetBoxesNextTo(BoxOption)
-                 .Any(b => !b.Statement!.IsTrue);
-
         protected override IReadOnlyCollection<ParlorPuzzleBox> GetPossibleGemsLocationsInformedInStatement()
             => [];
 
-        protected override IReadOnlyCollection<ParlorPuzzleBox> GetPossibleGemsLocationsInvertedInformedInStatement()
-            => [];
-
         protected override IReadOnlyCollection<ParlorPuzzleBox> GetNotPossibleGemsLocationsInformedInStatement()
-            => [];
-
-        protected override IReadOnlyCollection<ParlorPuzzleBox> GetNotPossibleGemsLocationsInvertedInformedInStatement()
             => [];
     }
 }

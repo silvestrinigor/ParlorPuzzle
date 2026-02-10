@@ -9,12 +9,9 @@ namespace ParlorPuzzle.Statements
         private bool _isEvaluating;
 
         public string Message
-            => IsInverted
-            ? GetInvertedMessage()
-            : GetMessage();
+            => GetMessage();
 
         protected abstract string GetMessage();
-        protected abstract string GetInvertedMessage();
 
         public bool IsTrue
         {
@@ -28,9 +25,7 @@ namespace ParlorPuzzle.Statements
 
                 _isEvaluating = true;
 
-                var value = IsInverted
-                    ? VerifyInvertedIfStatementIsTrue()
-                    : VerifyIfStatementIsTrue();
+                var value = VerifyIfStatementIsTrue();
 
                 _cachedIsTrue = value;
                 _isEvaluating = false;
@@ -40,9 +35,6 @@ namespace ParlorPuzzle.Statements
         }
 
         protected abstract bool VerifyIfStatementIsTrue();
-        protected abstract bool VerifyInvertedIfStatementIsTrue();
-
-        public bool IsInverted { get; set; }
 
         public required ParlorPuzzleBox Box { get; set; }
         public required ParlorPuzzleBoxOption BoxOption { get; set; }
@@ -52,18 +44,12 @@ namespace ParlorPuzzle.Statements
         private IReadOnlyCollection<ParlorPuzzleBox>? _cachedNotPossible;
 
         public IReadOnlyCollection<ParlorPuzzleBox> PossibleGemsLocationsInformedInStatement
-            => _cachedPossible ??= IsInverted
-            ? GetPossibleGemsLocationsInvertedInformedInStatement()
-            : GetPossibleGemsLocationsInformedInStatement();
+            => _cachedPossible ??= GetPossibleGemsLocationsInformedInStatement();
 
         public IReadOnlyCollection<ParlorPuzzleBox> NotPossibleGemsLocationsInformedInStatement
-            => _cachedNotPossible ??= IsInverted
-            ? GetNotPossibleGemsLocationsInvertedInformedInStatement()
-            : GetNotPossibleGemsLocationsInformedInStatement();
+            => _cachedNotPossible ??= GetNotPossibleGemsLocationsInformedInStatement();
 
         protected abstract IReadOnlyCollection<ParlorPuzzleBox> GetPossibleGemsLocationsInformedInStatement();
-        protected abstract IReadOnlyCollection<ParlorPuzzleBox> GetPossibleGemsLocationsInvertedInformedInStatement();
         protected abstract IReadOnlyCollection<ParlorPuzzleBox> GetNotPossibleGemsLocationsInformedInStatement();
-        protected abstract IReadOnlyCollection<ParlorPuzzleBox> GetNotPossibleGemsLocationsInvertedInformedInStatement();
     }
 }
